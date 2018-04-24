@@ -1,8 +1,8 @@
 #
-# UTD CS3377 CDK Example
-# Dr. Perkins
-# stephen.perkins@utdallas.edu
-#
+# UTD CS3377 CDK Makefile
+# Nahian Afsari
+# nxa161730@utdallas.edu
+# cs3377.502
 
 CXX = g++
 CXXFLAGS = -Wall -g 
