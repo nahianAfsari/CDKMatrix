@@ -108,7 +108,7 @@ int main()
   stringstream ss3;
   ss3<<headers->numRecords;
   NumRecords+= ss3.str();
-
+  
   setCDKMatrixCell(myMatrix, 1, 1, magic.c_str());
   setCDKMatrixCell(myMatrix, 1, 2, version.c_str());
   setCDKMatrixCell(myMatrix, 1, 3, NumRecords.c_str());
@@ -116,22 +116,26 @@ int main()
   int i = 2;
   while(binInfile.read((char*)records, sizeof(BinaryFileRecord)))
     {
-     
-      string lengthStr = "strlen:";
-      stringstream ss4;
-      ss4<<records->strLength;
-      lengthStr += ss4.str();
       
       string word;
       stringstream ss5;
       ss5<<records->stringBuffer;
       word+= ss5.str();
+
+      string lengthStr;
+      stringstream ss4;
+      ss4<<"strlen: " << word.length();
+      lengthStr += ss4.str();
+
       setCDKMatrixCell(myMatrix, i,1 , lengthStr.c_str());
       setCDKMatrixCell(myMatrix, i, 2, word.c_str());
       i++;    
 
-    }
-  
+      }                                                                                     
+                                                                                                
+                                                                                          
+                                                                                                                                                         
+                                                                                                 
   drawCDKMatrix(myMatrix, true);
   binInfile.close();
   /* So we can see results, pause until a key is pressed. */
